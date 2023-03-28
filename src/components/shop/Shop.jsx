@@ -41,8 +41,8 @@ const Shop = () => {
     let newCart = []
     // if product doesn't exist in the cart then set quantity = 1
     // update exist update quantity by 1
+    console.log(cart)
     const exists = cart.find(pd => pd.id === product.id);
-    console.log(product)
     if(!exists){
       product.quantity = 1;
       newCart = [...cart, product];
@@ -59,11 +59,7 @@ const Shop = () => {
     <div className="shop-Container">
       <div className="products-container">
         {products.map((product) => (
-          <Product
-            {...product}
-            key={product.id}
-            handleAddToCart={handleAddToCart}
-          ></Product>
+          <Product product= {product} key={product.id} handleAddToCart={handleAddToCart}></Product>
         ))}
       </div>
       <div className="cart-container">
@@ -72,5 +68,4 @@ const Shop = () => {
     </div>
   );
 };
-
 export default Shop;
